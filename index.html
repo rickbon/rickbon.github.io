@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Fengtao He - Academic Homepage" />
+  <title>Fengtao He | Academic Homepage</title>
+  <style>
+    :root{
+      --bg:#f7f8fb;
+      --card:#ffffff;
+      --text:#1f2937;
+      --muted:#667085;
+      --line:#e5e7eb;
+      --accent:#315b8a;
+      --accent-soft:#eaf1f8;
+      --max:980px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.7;
+    }
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:var(--max);margin:0 auto;padding:0 24px}
+    header{
+      background:rgba(255,255,255,.95);
+      border-bottom:1px solid var(--line);
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter:blur(10px);
+    }
+    nav{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 24px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:18px;
+    }
+    .brand{font-weight:700;letter-spacing:.2px}
+    .navlinks{display:flex;gap:18px;flex-wrap:wrap;font-size:14px}
+    .hero{
+      padding:72px 0 44px;
+      background:linear-gradient(180deg,#fff 0%,var(--bg) 100%);
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.5fr .8fr;
+      gap:44px;
+      align-items:center;
+    }
+    .eyebrow{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      background:var(--accent-soft);
+      color:var(--accent);
+      font-size:13px;
+      font-weight:600;
+      margin-bottom:16px;
+    }
+    h1{
+      margin:0 0 8px;
+      font-size:48px;
+      line-height:1.15;
+      letter-spacing:-1px;
+    }
+    .subtitle{
+      font-size:19px;
+      color:var(--muted);
+      margin:0 0 22px;
+    }
+    .intro{
+      font-size:17px;
+      color:#374151;
+      max-width:700px;
+    }
+    .links{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:24px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      padding:9px 14px;
+      border-radius:8px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-size:14px;
+      font-weight:600;
+    }
+    .btn.primary{
+      background:var(--accent);
+      color:#fff;
+      border-color:var(--accent);
+    }
+    .profile-card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 10px 30px rgba(31,41,55,.06);
+    }
+    .profile-card h3{margin-top:0}
+    .quick-item{margin-bottom:14px}
+    .quick-label{
+      display:block;
+      font-size:12px;
+      text-transform:uppercase;
+      color:var(--muted);
+      letter-spacing:.08em;
+      margin-bottom:2px;
+    }
+    section{padding:46px 0}
+    section h2{
+      font-size:28px;
+      margin:0 0 22px;
+      letter-spacing:-.3px;
+    }
+    .section-lead{
+      color:var(--muted);
+      max-width:760px;
+      margin-top:-10px;
+      margin-bottom:24px;
+    }
+    .grid-2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:22px;
+    }
+    .card h3{margin:0 0 8px;font-size:18px}
+    .card p{margin:0;color:#4b5563}
+    .tags{display:flex;flex-wrap:wrap;gap:9px}
+    .tag{
+      padding:7px 10px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:999px;
+      font-size:13px;
+      color:#374151;
+    }
+    .publication{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:22px;
+      margin-bottom:16px;
+    }
+    .pub-title{font-weight:700;font-size:17px;margin-bottom:5px}
+    .pub-meta{color:var(--muted);font-size:14px;margin-bottom:9px}
+    .status{
+      display:inline-block;
+      font-size:12px;
+      font-weight:700;
+      padding:4px 8px;
+      border-radius:999px;
+      background:var(--accent-soft);
+      color:var(--accent);
+      margin-left:6px;
+    }
+    .timeline{
+      border-left:2px solid var(--line);
+      margin-left:8px;
+      padding-left:24px;
+    }
+    .timeline-item{margin-bottom:26px;position:relative}
+    .timeline-item:before{
+      content:"";
+      position:absolute;
+      width:10px;height:10px;
+      background:var(--accent);
+      border-radius:50%;
+      left:-30px;top:8px;
+    }
+    .time{font-size:13px;color:var(--muted)}
+    .role{font-weight:700}
+    footer{
+      border-top:1px solid var(--line);
+      padding:28px 0 38px;
+      color:var(--muted);
+      font-size:14px;
+      text-align:center;
+    }
+    @media(max-width:760px){
+      .hero{padding-top:44px}
+      .hero-grid,.grid-2{grid-template-columns:1fr}
+      h1{font-size:38px}
+      .navlinks{display:none}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <nav>
+    <div class="brand">Fengtao He</div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" id="about">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Academic Homepage</span>
+        <h1>Fengtao He</h1>
+        <p class="subtitle">MSc Student in Information Technology · University of New South Wales</p>
+        <p class="intro">
+          I am interested in robust and trustworthy machine learning, acoustic intelligence,
+          multimodal learning, and large language model editing. My current research focuses on
+          how intelligent systems can remain reliable under data scarcity, domain shift, open-world
+          conditions, and real-world deployment constraints.
+        </p>
+        <div class="links">
+          <a class="btn primary" href="mailto:1793702717@qq.com">Email Me</a>
+          <a class="btn" href="https://github.com/rickbon" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </div>
+      <div class="profile-card">
+        <h3>Research Profile</h3>
+        <div class="quick-item">
+          <span class="quick-label">Current Affiliation</span>
+          University of New South Wales
+        </div>
+        <div class="quick-item">
+          <span class="quick-label">Research Interests</span>
+          Robust ML · Acoustic Intelligence · Trustworthy AI · LLM Editing
+        </div>
+        <div class="quick-item">
+          <span class="quick-label">Location</span>
+          Sydney, Australia
+        </div>
+        <div class="quick-item">
+          <span class="quick-label">Contact</span>
+          <a href="mailto:1793702717@qq.com">1793702717@qq.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="research">
+    <div class="container">
+      <h2>Research Interests</h2>
+      <p class="section-lead">
+        My research interests center on reliable intelligent systems operating beyond idealized
+        benchmark settings, with particular attention to generalization, robustness, and evaluation.
+      </p>
+      <div class="tags">
+        <span class="tag">Robust Machine Learning</span>
+        <span class="tag">Trustworthy AI</span>
+        <span class="tag">Anomalous Sound Detection</span>
+        <span class="tag">Acoustic Target Recognition</span>
+        <span class="tag">Multimodal Learning</span>
+        <span class="tag">Large Language Models</span>
+        <span class="tag">Model Editing</span>
+        <span class="tag">Computer Vision</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications">
+    <div class="container">
+      <h2>Publications & Manuscripts</h2>
+
+      <div class="publication">
+        <div class="pub-title">
+          A Problem-Oriented Survey of Anomalous Sound Detection: From Normality Learning to Deployable Acoustic Intelligence
+        </div>
+        <div class="pub-meta">
+          Fengtao He et al. · <em>Computer Speech & Language</em>
+          <span class="status">Conditional Accept</span>
+        </div>
+        <p>
+          A systematic review of anomalous sound detection from normality learning to domain
+          generalization, few-shot learning, and real-world deployment, with emphasis on data scarcity,
+          domain shift, score stability, and deployability.
+        </p>
+      </div>
+
+      <div class="publication">
+        <div class="pub-title">
+          Passive Underwater Acoustic Target Recognition: A Task- and Protocol-Aware Review
+        </div>
+        <div class="pub-meta">
+          Second Author · <em>Computer Speech & Language</em>
+          <span class="status">Under Review</span>
+        </div>
+        <p>
+          A review of passive underwater acoustic target recognition that analyzes task settings,
+          dataset protocols, acoustic representations, and the transition from closed-set recognition
+          to open-set, cross-domain, few-shot, and continual learning scenarios.
+        </p>
+      </div>
+
+      <div class="publication">
+        <div class="pub-title">
+          Combining Robotic Vision with Non-Invasive Brain-Computer Interfaces: Development and Future Directions
+        </div>
+        <div class="pub-meta">
+          First Author · <em>Highlights in Science, Engineering and Technology</em>
+          <span class="status">Accepted</span>
+        </div>
+        <p>
+          A study of integrating non-invasive brain-computer interfaces with robotic vision,
+          including EEG noise, decoding efficiency, visual localization, control accuracy, and multimodal challenges.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <h2>Research Experience</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>LLM Model Editing Safety Evaluation</h3>
+          <p><strong>Research Assistant, National University of Singapore</strong></p>
+          <p style="margin-top:10px;">
+            Studied knowledge editing methods for large language models, including ROME and MEMIT,
+            and evaluated the impact of model editing on factual accuracy, reasoning capability,
+            safety, and knowledge retention.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Acoustic Intelligence Research</h3>
+          <p><strong>Anomalous Sound Detection & Underwater Acoustics</strong></p>
+          <p style="margin-top:10px;">
+            Investigated robustness and generalization issues in acoustic machine learning,
+            particularly under domain shift, limited data, changing evaluation protocols, and
+            open-world deployment conditions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="container">
+      <h2>Education</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="role">MSc in Information Technology</div>
+          <div>University of New South Wales, Sydney, Australia</div>
+          <div class="time">2025 – Present</div>
+          <p>Selected coursework: Artificial Intelligence, Computer Vision, Bayesian Networks.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="role">BSc in Information and Computing Science</div>
+          <div>Xi'an Jiaotong-Liverpool University, Suzhou, China</div>
+          <div class="time">2019 – 2024</div>
+          <p>
+            Coursework included Machine Learning, Artificial Intelligence, Big Data Analytics,
+            Database Development, Decision Computation and Language, Linear Algebra, Calculus,
+            Statistics, Java Programming, and Computer Systems.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Technical Skills</h2>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">PyTorch</span>
+        <span class="tag">C++</span>
+        <span class="tag">Java</span>
+        <span class="tag">MATLAB</span>
+        <span class="tag">Linux</span>
+        <span class="tag">CUDA</span>
+        <span class="tag">Git</span>
+        <span class="tag">LaTeX</span>
+        <span class="tag">Data Analysis</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    © 2026 Fengtao He · Built for GitHub Pages
+  </div>
+</footer>
+</body>
+</html>
